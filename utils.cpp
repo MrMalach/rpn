@@ -16,9 +16,7 @@ Operator opDecision(const char c, std::map<char, char> mp)
 		default:
 			if (mp.count(c))
 				return op_bracketOpening;
-			if (c >= '0' && c <= '9')
-				return op_operand;
-			return op_none;
+			return (c >= '0' && c <= '9') ? op_operand : op_none;
 	}
 
 }
