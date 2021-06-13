@@ -63,15 +63,9 @@ const unsigned int getNum(const char* str, unsigned int *i, const unsigned int s
 
 const bool isSign(const char* str, unsigned int i)
 {
-	// Returns true is the minus is for sign
-	// Flase is the minus is the operator
+	// Returns true if '-' is for sign [ex: 2*-6=-12]
+	// Flase for the operator [ex: 1-1=0]
 
-	// this function is called when a '-' char is read
-	// checks previous operator or operand in the 
-	// expression and returns true if the index is 0 or
-	// if the previous is an operator
-	// if the previous is an operand returs false
-	// 
 	if (i == 0)
 		return true;
 	while (str[--i] == ' ')
@@ -92,7 +86,7 @@ const unsigned int getBracketsLength(char* str, const unsigned int strLen, const
 		else if ((str[j]) == mp[brackets.top()])
 			// str[j] - check for the closing brackets, compare to the value of the hash map running
 			// the top of the stack char value.
-			// so if its the same value - the brackets got closed properly
+			// so... if its the same value - the brackets got closed properly!
 		{
 			brackets.pop();
 			// if the stack is empty - the expression is found.
@@ -100,7 +94,7 @@ const unsigned int getBracketsLength(char* str, const unsigned int strLen, const
 				return j - i + 1;
 		}
 	} 
-	// Got here? thats an error
+	// Got here? catch 👊
 	std::invalid_argument e("error - Bad brackets");
 	throw(e);
 }
