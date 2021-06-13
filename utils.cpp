@@ -92,15 +92,17 @@ const unsigned int getBracketsLength(char* str, const unsigned int strLen, const
 			brackets.push(str[j]);
 		}
 		else if ((str[j]) == mp[brackets.top()])
-			// isBracketclosing(char) returns the value of the opening brackets char.
-			// so if its the same value it means that the brackets got closed properly
+			// str[j] - check for the closing brackets, compare to the value of the hash map running
+			// the top of the stack char value.
+			// so if its the same value - the brackets got closed properly
 		{
 			brackets.pop();
-			// if the stack is empty it mean that the expression is found.
+			// if the stack is empty - the expression is found.
 			if (brackets.empty())
 				return j - i + 1;
 		}
-	}
+	} 
+	// Got here? thats an error
 	std::invalid_argument e("error - Bad brackets");
 	throw(e);
 }
