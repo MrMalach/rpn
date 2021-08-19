@@ -14,8 +14,7 @@
 		Node *n = new (std::nothrow) Node(data);
 		if (NULL == n)
 		{
-			std::invalid_argument inv_arg("allocation error");
-			throw(inv_arg);
+			throw(std::invalid_argument("allocation error"));
 		}
 		if (NULL == head)
 			head = n;
@@ -29,8 +28,7 @@
 	{
 		if (empty())
 		{
-			std::invalid_argument inv_arg("error - bad expression");
-			throw(inv_arg);
+			throw(std::invalid_argument("error - bad expression"));
 		}
 		Node* temp = head;
 		int out = temp->data;
@@ -42,8 +40,8 @@
 	{
 		if (empty())
 		{
-			std::invalid_argument inv_arg("error - bad expression");
-			throw(inv_arg);
+			throw(std::invalid_argument("error - bad expression"));
+
 		}
 		return head->data;
 	}
