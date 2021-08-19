@@ -11,7 +11,7 @@
 	Stack::~Stack(){ while (!empty()) pop(); }
 	void Stack::push(const int data)
 	{
-		Node *n = new Node(data);
+		Node *n = new (std::nothrow) Node(data);
 		if (NULL == n)
 		{
 			std::invalid_argument inv_arg("allocation error");
